@@ -25,7 +25,7 @@ SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'django-insecure-rj2mw#6(7wd3ijiid+vc3h*(zrk(d=$7s63xz0ag8$hkk&$3s%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -157,11 +157,9 @@ CACHES = {
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 SESSION_CACHE_ALIAS = 'default'
 
-# import os
+import os
+from dotenv import load_dotenv
 
-# # Busca a SECRET_KEY do ambiente
-# SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+load_dotenv()  # Carrega variáveis do arquivo .env
 
-# # Verifica se a SECRET_KEY foi definida
-# if not SECRET_KEY:
-#     raise ValueError("A variável de ambiente DJANGO_SECRET_KEY não foi configurada!")
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'default_secret_key')
