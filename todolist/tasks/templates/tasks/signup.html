@@ -1,0 +1,54 @@
+{% load static %} {% block content %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="{% static 'tasks/style/index.css' %}" />
+  </head>
+  <body>
+    <div class="login-container">
+      {% if messages %}
+      <div class="django-error">
+        {% for message in messages %}
+        <a>{{ message }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <h1>Cadastro</h1>
+      <form id="formLogin" method="POST">
+        {% csrf_token %}
+        <label for="login">Login:</label>
+        <input
+          name="login"
+          onchange="checkLogin()"
+          id="login"
+          placeholder="Digite seu e-mail ou nome de usuário"
+          required
+        />
+        <label for="pswd">Senha:</label>
+        <input
+          name="pswd"
+          onchange="checkPassword()"
+          type="password"
+          id="pswd"
+          placeholder="Digite sua senha"
+          required
+        />
+        <label for="pswdConfirmation">Confirmação de senha:</label>
+        <input
+          type="password"
+          onchange="checkPasswordConfirmation()"
+          id="pswdConfirmation"
+          placeholder="Digite sua senha novamente"
+          required
+        />
+        <button type="submit" href="">Cadastrar</button>
+      </form>
+    </div>
+  </body>
+  <script src="{% static 'tasks/js/signup.js' %}"></script>
+</html>
+
+{% endblock %}

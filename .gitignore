@@ -1,0 +1,25 @@
+# Ambiente virtual
+venv/
+env/
+.venv/
+
+# Arquivos Python
+*.pyc
+__pycache__/
+
+# Banco de dados local
+*.sqlite3
+
+# Arquivos de desenvolvimento e sensíveis
+.env
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos estáticos e mídia gerados
+/staticfiles/
+/media/
+
+# Logs
+*.log

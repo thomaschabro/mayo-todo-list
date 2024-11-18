@@ -1,0 +1,109 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #6a11cb;
+  color: #fff;
+  margin: 0;
+}
+
+.django-error {
+  font-size: 12px;
+  padding-bottom: 10px;
+}
+
+.django-error a {
+  color: red;
+  font-weight: bold;
+}
+
+.login-container {
+  background: #ffffff;
+  color: #333;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+}
+
+.login-container h1 {
+  font-size: 26px;
+  margin-bottom: 10px;
+  color: #6a11cb;
+}
+
+.login-container .subtitle {
+  font-size: 14px;
+  margin-bottom: 40px;
+  color: #666;
+}
+
+.login-container label {
+  display: block;
+  text-align: left;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #555;
+  font-weight: bold;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #f9f9f9;
+}
+
+.login-container input:focus {
+  border-color: #6a11cb;
+  outline: none;
+  box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+}
+
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  background: #6a11cb;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-container button:hover {
+  background: #5b0f9c;
+}
+
+.login-container .cadastro {
+  font-size: 12px;
+  margin-top: 15px;
+  color: #666;
+}
+
+.login-container .cadastro a {
+  color: #6a11cb;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.login-container .cadastro a:hover {
+  text-decoration: underline;
+}

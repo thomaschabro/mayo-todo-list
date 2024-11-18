@@ -1,0 +1,136 @@
+{% load static %} {% block content %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'tasks/style/home.css' %}" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="text">
+        <h1>Olá, <strong>{{ user.login }}</strong></h1>
+        <p class="subtitle">Aqui está sua lista de tarefas:</p>
+      </div>
+      <div class="actions">
+        <button class="btn-task" onclick="createTask()">Criar Tarefa</button>
+        <form method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="submit" value="logout" />
+          <button class="btn-logout" onclick="logout()">Logout</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="taskModal" class="popup">
+      <div class="popup-content">
+        <form id="createTask" method="POST">
+          {% csrf_token %}
+          <h2>Criar Nova Tarefa</h2>
+          <input
+            type="text"
+            id="taskTitle"
+            class="input-field"
+            name="title"
+            placeholder="Título da tarefa"
+            required
+          />
+          <input
+            type="text"
+            id="taskDescription"
+            class="input-field"
+            name="description"
+            placeholder="Descrição"
+            required
+          />
+          <div class="status">
+            <label for="taskStatus">Status: </label>
+            <select id="taskStatus" name="status">
+              <option value="Pendente">Pendente</option>
+              <option value="Concluída">Concluída</option>
+            </select>
+          </div>
+          <div class="datesContainer">
+            <a>Data de criação</a>
+            <input
+              type="date"
+              id="taskDate"
+              class="input-field"
+              name="creationDate"
+              required
+            />
+            <a>Data da última atualização</a>
+            <input
+              type="date"
+              id="taskLastUpdate"
+              class="input-field"
+              name="updateDate"
+              required
+            />
+          </div>
+          <button type="submit" name="submit" value="save">Salvar</button>
+          <button onclick="closeModal()">Cancelar</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="tasks-container">
+      {% for task in tasks %}
+      <div class="task">
+        <h3>{{ task.title }}</h3>
+        <p class="description">{{ task.description }}</p>
+        <div class="task-details">
+          <div class="dates">
+            <div class="date">
+              <strong>Data de Criação:</strong>
+              <span>{{ task.created_at }}</span>
+            </div>
+            <div class="date">
+              <strong>Última Atualização:</strong>
+              <span>{{ task.updated_at }}</span>
+            </div>
+          </div>
+          <div class="status">
+            <form method="POST" class="row">
+              {% csrf_token %}
+              <input type="hidden" name="id" value="{{ task.id }}" />
+              <label for="taskStatusUpdate">Status: </label>
+              <select
+                id="taskStatusUpdate"
+                name="status"
+                value="{{ task.status }}"
+              ></select>
+              <button
+                class="btn-update"
+                type="submit"
+                name="submit"
+                value="update-status"
+                style="font-weight: bold"
+              >
+                Atualizar
+              </button>
+            </form>
+          </div>
+        </div>
+        <form method="POST" class="delete">
+          {% csrf_token %}
+          <input type="hidden" name="id" value="{{ task.id }}" />
+          <button
+            class="btn-delete"
+            type="submit"
+            name="submit"
+            value="delete"
+            style="font-weight: bold"
+          >
+            Deletar
+          </button>
+        </form>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+  <script src="{% static 'tasks/js/home.js' %}"></script>
+</html>
+
+{% endblock %}

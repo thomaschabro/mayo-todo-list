@@ -1,0 +1,281 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  min-height: 100vh;
+  background: #6a11cb;
+  color: #fff;
+  margin: 0;
+}
+
+.header {
+  width: 100%;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .text {
+  display: flex;
+  flex-direction: column;
+}
+
+.header h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #6a11cb;
+  font-weight: normal;
+}
+
+.header .subtitle {
+  font-size: 14px;
+  color: #6a11cb;
+}
+
+.header .actions {
+  display: flex;
+  gap: 10px; /* Espaço entre os botões */
+}
+
+.header .actions button {
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.header .actions button:hover {
+  opacity: 0.8; /* Efeito de hover para todos os botões */
+}
+
+.header .actions .btn-task {
+  background-color: #6a11cb;
+}
+
+.header .actions .btn-task:hover {
+  background-color: #5b0f9c;
+}
+
+.header .actions .btn-logout {
+  background-color: #e74c3c; /* Cor do botão Logout */
+}
+
+.header .actions .btn-logout:hover {
+  background-color: #c0392b; /* Cor mais escura no hover */
+}
+
+/* Task container */
+.tasks-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+}
+
+/* Individual task card */
+.task {
+  background: #ffffff;
+  color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.task:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Title */
+.task h3 {
+  font-size: 20px;
+  color: #6a11cb;
+  margin-bottom: 10px;
+}
+
+/* Description */
+.task .description {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+/* Task details (status and dates) */
+.task .task-details {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.task .task-details .status {
+  font-weight: bold;
+  color: #6a11cb;
+  margin-bottom: 10px;
+}
+
+.task .task-details .status .status-value {
+  font-weight: normal;
+  color: #333;
+}
+
+.task .task-details .dates {
+  margin-top: 10px;
+}
+
+.task .task-details .dates .date {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.task .task-details .dates .date strong {
+  color: #6a11cb;
+}
+
+/* Delete button */
+.delete button {
+  cursor: pointer;
+  border: none;
+  font-size: 15px;
+  background: none;
+  padding: 5px 10px;
+  transition: color 0.3s ease;
+}
+
+.btn-delete {
+  color: #e74c3c;
+}
+
+.btn-delete:hover {
+  color: #c0392b;
+  text-decoration: underline;
+}
+
+.btn-update {
+  margin-left: 10px;
+  cursor: pointer;
+  border: none;
+  font-size: 15px;
+  background: none;
+  padding: 5px 10px;
+  transition: color 0.3s ease;
+  color: #089744;
+}
+
+.btn-update:hover {
+  color: #08712d;
+  text-decoration: underline;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
+}
+
+.popup h2 {
+  margin-bottom: 15px;
+  color: #6a11cb;
+}
+
+.popup .input-field {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.popup button {
+  padding: 10px 15px;
+  background-color: #6a11cb;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup button:hover {
+  background-color: #5b0f9c;
+}
+
+#taskStatus {
+  width: 100%;
+  padding: 10px;
+  margin-left: 20px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
+#taskStatusUpdate {
+  width: 90px;
+  margin-left: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
+.status {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #6a11cb;
+  margin: 10px 0;
+  margin-top: 20px;
+}
+
+#taskDate {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
+.datesContainer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.datesContainer a {
+  color: #6a11cb;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
