@@ -1,5 +1,7 @@
 # mayo-todo-list
 
+Link para video de apresentação do aplicativo: https://youtu.be/cb1XLjOnLsc
+
 Requisitos
 Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
 
